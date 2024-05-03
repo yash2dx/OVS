@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <title style="background-color:darkblue">Profile</title>
+        <style>
+            
+            h1{
+                font-size:40px;
+                margin-left:40px;
+            }
+            tr{
+                margin-left: 50px;
+            }
+            .nav-link{
+                font-size: 20px;
+              }
+            
+            #whit{
+                background-color: whitesmoke;
+            }
+        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+    </head>
+    <body style="background-color:darkblue">
+        {%block content%}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/" style="color: darkred;">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"   style="color: darkred;">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="#" role="button"  style="color: darkred;">
+                    Your Profile
+                  </a>
+                 </li>
+                   <li class="nav-item">
+                    <a class="nav-link" href="logout.html"  role="button" style="color: darkred;">
+                      History
+                    </a>
+                     </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="logout.html"  role="button" style="color: darkred;">
+                    Logout
+                  </a>
+                   </li>
+             </ul>
+            </div>
+          </nav>
+          <br>
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-sm-4">
+                    <img src="https://edtimes.in/wp-content/uploads/2018/09/vote2-640x358.jpg " height="300px"  width=425px>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiCgMbZZXNo_TlwmwYDVllWDdDtDgZ-5RRGw&usqp=CAU"  height="240px" width=425px>
+                                      </div>
+                  <div class="col-sm-3" id="whit">
+        <h1 style="color:darkred;"> Profile</h1>
+        <form>
+            <table>
+              <tr>
+                <td><img src="{{vot.profile_pic}}" height="100" width="100"></td>
+              </tr>
+                <tr>
+                <td style="color: darkred;">
+                   <b> Name    </b>
+                </td>
+                <td style="color: darkred;">
+                    <b>: {{vot.firstname}}  {{vot.lastname}}</b>
+                </td>
+                </tr>
+                <tr>
+                    <td style="color: darkred">
+                     <b>  Voter Id No.</b>                    </td>
+                        <td style="color: darkred;">
+                       <b>     : {{vot.username}} </b>
+                        </td>
+                </tr>
+                <tr>
+                    <td style="color: darkred;">
+                       <b> State </b>
+                    </td>
+                    <td style="color: darkred;">
+                      <b>      : {{vot.state}}  </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="color: darkred;">
+                    <b>    Seat Code</b>
+                    </td>
+                    <td style="color: darkred;"><b>: {{vot.seatcode}}</b></td>
+                </tr>
+                <tr><td style="color: darkred;">
+                      <b>       Email  </b></td>
+                    <td style="color: darkred;">
+                        <b>: {{vot.email}}  </b></td>
+                </tr>
+                <tr>
+                  <td style="color: darkred;">
+                     <b> Sex </b>
+                  </td>
+                  <td style="color: darkred;">
+                    <b>      : {{vot.gender}}  </b>
+                  </td>
+              </tr>
+              <tr>
+                <td style="color: darkred;">
+                   <b> Party </b>
+                </td>
+                <td style="color: darkred;">
+                  <b>      : {{vot.partyname}}  </b>
+                </td>
+            </tr>
+            <tr>
+              <td style="color: darkred;">
+                 <b> Symbol </b>
+              </td>
+              <td style="color: darkred;">
+                <b>      : {{vot.symbol}}  </b>
+              </td>
+          </tr>
+            </table>
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReyBaGHHkUB-O14FIDjr_YUpo3ufIZtHj4eA&usqp=CAU"   height="240px" width="325px">
+   
+        </div>
+        <div class="col-sm-5">
+            <img src="https://static2.bigstockphoto.com/2/9/2/large2/292414507.jpg" height=540px width=525px>
+        </div>
+        </div>
+        </div>
+        {%endblock%}
+    </body>
+</html>

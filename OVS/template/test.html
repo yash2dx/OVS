@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>
+            test
+        </title>
+    </head>
+    <body>
+        <form>
+            <label >
+                Datetype
+            </label>
+            <input type="text" id='datetype' onchange="Change();" >
+            <label >
+                DateFrom
+            </label>
+            <input type="date" id='datefrom' />
+            <label >
+                DateTo
+            </label>
+            <input type="date" id='dateto' />
+            <button type="submit" onclick="condition_mandatory();">
+                Click here
+            </button>
+        </form>
+
+        <script>
+            function Change(){
+                console.log("This is in function")
+                //alert("this is onchange event");
+            //     document.getElementById('datefrom').required=true;
+            //     document.getElementById('datefrom').style="mandatory";
+            //     document.getElementById('dateto').required=true;
+            //     document.getElementById('dateto').style="mandatory";
+             }
+
+            function condition_mandatory()
+
+            {   console.log("This is in conditional mandatory function")
+                date_type=document.getElementById('datetype').value;
+                date_from=document.getElementById('datefrom').value;
+                date_to=document.getElementById('dateto').value;
+                console.log("date Type =" +date_type)
+                console.log("date From = " + date_from)
+                console.log("date To = " + date_to)
+                if(date_type!='' && (date_from == '' || date_to==''))
+                alert("date_to and from are mandatory")
+            }
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Nomination Form</title>
+    </head>
+    <body>
+        
+        <center>
+            <h1>Candidate Nomination</h1>
+        </center>
+        <br /><br>
+        <form method="POST">
+            {%csrf_token%}
+            <label>Name</label>
+            <input type="text" id="name" name="name" />
+            <br />
+            
+            <label>Candidate ID</label>
+            <input type="text" id="c_id" name="c_id" />
+            <br />
+            <label>Username or Voterid</label>
+            <input type="text" id="username" name="username" />
+            <br />
+            <label>Name of the Election</label>
+            <input type="text" id="ename" name="ename" />
+            <br />
+            <label>Main Election ID </label>
+            <input type="text" id="mid" name="mid" />
+            <br />
+            <label>Id of the Seat Election</label>
+            <input type="number" id="eid" name="eid" />
+            <br />
+            <label>State</label>
+            <select type="text" id="state" name="state">
+                <option value="">--select--</option>
+                {% for i in state%}
+                <option value="{{i}}">{{i}}</option>
+                {%endfor%}
+            </select>
+            <br />
+            <label>Seat Name</label>
+            <select type="text" id="seat" name="seat">
+                <option value="">--select--</option>
+                {% for i in seat%}
+                <option value="{{i}}">{{i}}</option>
+                {%endfor%}
+            </select>
+            <br />
+            <button type="submit">Submit Your Information</button>
+        </form>
+    </body>
+</html>

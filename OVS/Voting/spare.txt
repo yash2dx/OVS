@@ -1,0 +1,141 @@
+#login_voter
+
+if request.method=="POST":
+            voterid=request.POST.get('username')
+            password=request.POST.get('password')
+            user=authenticate(username=voterid,password=password)
+            print(user)
+            if user is not None:
+                login(request,user)
+                #url='otp_verify/'+voterid
+               # return redirect(url)
+                
+                eid=GetId(voterid)
+                vot=VoterInfo(voterid,password)
+                context={'vot':vot,'status':checkAlreadyVoted(voterid,eid)}
+                return render(request,"voters_logged_in.html",context)
+                
+            else:
+                messages.info(request,"invalid credentials")
+                return redirect("login_voter")     
+            
+           # return render(request,"home.html")
+   else:                  
+        return render(request,'login_voter.html')
+
+
+#############################################################################
+
+
+#########################LOGIN CANDIDATE#################################
+
+ if request.method=="POST":
+            username=request.POST.get('username')
+            password=request.POST.get('password')
+            user=authenticate(username=username,password=password)
+            print(user)
+            if user is not None:
+                login(request,user)
+                context={'vot':CandidateInfo(username,password)}
+                
+                    
+                return render(request,"candidate_logged_in.html",context)
+            else:
+                messages.info(request,"invalid credentials")
+                return redirect("login_candidate")     
+            
+           # return render(request,"home.html")
+    else:                  
+        return render(request,'login_candidate.html')
+
+
+######################################################################################
+
+
+########################################VOTER PROFILE####################################
+
+context={'vot':VoterInfoUsingID(id)}
+    return render(request,"profile.html",context)
+
+###########################################################################################
+
+
+########################################CANDIDATE PROFILE####################################
+
+context={'vot':CandidateInfoUsingID(id)}
+    return render(request,"candidate_profile.html",context)
+
+
+###########################################################################################
+
+
+####################################################CANDIDATE NOMINATION####################3
+
+context={
+        'state':selectStateNomination,
+        'seat':selectSeatNomination
+    }
+
+    if request.method=="POST":
+        name=request.POST.get('name')
+        c_id=request.POST.get('c_id')
+        username=request.POST.get('username')
+        ename=request.POST.get('ename')
+        eid=request.POST.get('eid')
+        state=request.POST.get('state')
+        seat=request.POST.get('seat')
+        print(seat)
+        election=Election(Election_id=eid,Candidate_Name=name,Candidate_Id=c_id,Election_Name=ename,Candidate_Username=username,State=state,Seat=seat)
+        election.save()
+    return render(request,"candidate_nomination.html",context)
+
+
+#############################################################################################################
+
+
+
+
+##############################################CAST VOTE#########################################################
+
+ if request.method=="POST":
+        username=request.POST.get('op')
+        print(username)
+        e_id=SubmitVote(username)
+        username=request.user.username
+        voted=AlreadyVoted(Election_id=e_id,Username=username)
+        voted.save()
+        
+        return redirect('login_voter')
+        
+    username=request.user.username
+    candidate_dict=CandidateList(username)
+    #lst_name=candidate_dict['name']
+    #lst_user=candidate_dict['user']
+    print(candidate_dict)
+    context={'candidate':candidate_dict}
+    return render(request,'Voting.html',context)
+
+
+#################################################################################################################
+
+#####################################################RESULT#####################################################3
+context={'states':showStates}
+    return render(request,'Result.html',context)
+
+##################################################################################################
+
+########################################RESULT State##############################################3
+
+context={'result':showResultsSeatWise(state)}
+    if(context['result']==""):
+        return HttpResponse("No Results to show")
+    else:
+        return render(request,'ResultState.html',context)
+
+######################################################################################################
+
+##################################################HISTORY###########################################
+
+return render(request,'history.html')
+
+##############################################################################################

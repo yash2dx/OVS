@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>History</title>
+    </head>
+    <body>
+        <center><h1>HISTORY</h1></center>
+  
+<table>
+            <tr>
+                <td>
+                    <h3>Election Name<h3>
+                </td>
+                <td>
+                    <h3>Candidate Name<h3>
+                </td>
+                <td>
+                    <h3>Seat<h3>
+                </td>
+                <td>
+                    <h3>Year<h3>
+                </td>
+                
+            </tr>
+            {%for i in record%}
+            
+            <tr>
+                
+                <td>{{i.0}}</td>        
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.3}}</td>
+            </tr>
+            
+            {%endfor%}
+        </table>
+        
+
+    
+    </body>
+</html>

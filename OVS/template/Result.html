@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Results</title>
+    </head>
+    <body>
+        <center><h1>RESULTS</h1></center>
+  <!--
+<table>
+            <tr>
+                <td>
+                    <h3>Seat Name<h3>
+                </td>
+                <td>
+                    <h3>Winner</h3>
+                </td>
+            </tr>
+            {%for i in result_seatwise%}
+            <tr>
+                <td>
+                    {{i.1}}
+                </td>
+                <td>
+                    {{i.0}}
+                </td>
+            </tr>
+            {%endfor%}
+        </table>
+  -->      
+
+        <ul>
+            {% for i in states%}
+            <a href="result/{{i}}"><li>{{i}}</li></a>
+            {%endfor%}
+        </ul>
+    </body>
+</html>

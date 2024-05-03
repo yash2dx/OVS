@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Cast Your Vote</title>
+    </head>
+    <body>
+        <h1 align="center">Vote Your Favourite Candidate</h1>
+        <br /><br />
+        <form method="POST">
+            {%csrf_token%}
+            {%for i in candidate%}
+
+              <input type="radio" id={{i.1}} name="op" value={{i.1}}>
+              <label>{{i.0}}</label><br>
+
+            {%endfor%}
+
+            <button type="submit">Submit Your Vote</button>
+        </form> 
+        <script>
+            function message()
+            {
+                document.write("You have successfully caste your vote")
+            }
+        </script>
+    </body>
+</html>

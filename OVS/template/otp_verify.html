@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Verify</title>
+    </head>
+    <body>
+        <center><h1>Verify Your Account</h1></center>
+        
+        <br /><br />
+        <h3>An OTP has been sent to your registered phone No. </h3>
+        <form method="POST" action='{{voterid}}'>
+            {%csrf_token%}
+            <label>Enter the OTP</label>
+            <input type="text" id='otp' name='otp'>
+            <button type="submit">Verify your Account</button>
+        </form>
+         
+        {% if status%}
+            <h3>Wrong OTP</h3>
+        {%endif%}
+    </body>
+</html>

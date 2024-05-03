@@ -1,0 +1,9 @@
+1. Make a table for Main Elections where the data for the main elections will be kept
+
+2. Election id for the addelections table will be the one taken from the main Election
+
+3. All elections will be simultaneously start and end 
+
+4. Add time bound
+
+5. History tab

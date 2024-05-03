@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Results</title>
+    </head>
+    <body>
+        <center><h1>RESULTS</h1></center>
+  
+<table>
+            <tr>
+                <td>
+                    <h3>SeatName<h3>
+                </td>
+                <td>
+                    <h3>Winner</h3>
+                </td>
+            </tr>
+            {%for i in result%}
+            <tr>
+                <td>
+                    {{i.1}}
+                </td>
+                <td>
+                    {{i.0}}
+                </td>
+            </tr>
+            {%endfor%}
+        </table>
+        
+
+    
+    </body>
+</html>
